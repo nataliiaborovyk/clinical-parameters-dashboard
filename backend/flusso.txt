@@ -1,0 +1,200 @@
+
+FLUSSO A — Avvio pagina (controllo server + regole)
+Frontend → getStatus() → GET /status → Backend
+
+
+🧠: App.jsx chiama getStatus() (in api.js), che fa GET BASE/status. Flask risponde { status: "ok" }.
+
+
+
+
+Frontend → getNorme() → GET /norme → Backend
+
+
+🧠: getNorme() fa GET BASE/norme. Il backend legge valori_norma_emodialisi.json e manda tutto al frontend.
+
+
+
+Frontend aggiorna UI
+
+
+🧠: salviamo le norme in memoria (state) e le useremo per colori/validazioni.
+
+
+
+
+FLUSSO B — Costruzione della barra temporale (timeline)
+Frontend → getTimeline(patientId) → GET /timeline/:patientId → Backend
+
+
+🧠: GET BASE/timeline/P001. Il backend apre pazienti_emodialisi.json, trova P001, scorre i giorni disponibili. Per ogni data chiama l’algoritmo valuta_summary(...), poi normalizza con _extract_color() / _normalize_score_color(). Risponde con una lista: [{ timestamp, color, score }, ...].
+
+
+
+
+Frontend disegna la timeline
+
+
+🧠: la lista ricevuta costruisce la barra colorata; ogni “segmento” è cliccabile.
+
+
+💬: (Hai una striscia colorata che racconta l’andamento nel tempo.)
+
+
+
+FLUSSO C — Clic su un giorno (riassunto del giorno)
+Frontend → postValuta({ patientId, timestamp, ruleId }) → POST /valuta → Backend
+
+
+🧠: POST BASE/valuta con JSON { patientId, timestamp, ruleId }. Backend: _parse_params() uniforma i nomi; chiama valuta_summary(). Normalizza in { score, color }.
+
+
+💬: (Clicchi un giorno: il frontend domanda al server “com’è messo oggi?”. Il server applica le regole ai numeri di quel giorno, calcola un voto e un colore, e li rimanda.)
+
+
+Frontend aggiorna indicatori “riassunto”
+
+
+🧠: stato React aggiornato, UI riflette score/color.
+
+
+💬: (Il riquadro in alto mostra “triage / rischio” coerente con quel giorno.)
+
+
+
+FLUSSO D — Clic su un giorno (dettaglio spiegato)
+Frontend → getValutaDettaglio(patientId, timestamp, days, ruleId) → POST /valuta/dettaglio → Backend
+
+
+🧠: POST BASE/valuta/dettaglio con JSON. Backend chiama valuta_detailed(); se non ci sono features, fa fallback con _avg_features_for_window() che calcola le medie nel periodo e confronta con le norme (prese da _load_norme_map()). Converte tutto con _normalize_score_color() e _normalize_features().
+
+
+💬: (Chiedi: “perché questo voto?”. Il server ti fa la tabella: per ogni parametro dice media nel periodo, range normale, colore e quanto ha pesato sul voto complessivo.)
+
+
+Frontend mostra il popup/tabella
+
+
+🧠: il componente “dettaglio” riceve features e le rende in tabella; spesso ordinate per “quanto sono fuori norma”.
+
+
+💬: (Vedi subito quali parametri hanno causato rischio, con colori e percentuali.)
+
+
+
+FLUSSO E — Lista dei pazienti (se usata)
+Frontend → GET /pazienti → Backend
+
+
+🧠: legge pazienti_emodialisi.json e ritorna solo gli id.
+
+
+💬: (Serve a popolare un elenco a tendina: “quali codici paziente posso scegliere?”.)
+
+
+
+FLUSSO F — Statistiche aggregate (mock per UI)
+Frontend → GET /stats/feature/<nome> → Backend
+
+
+🧠: risponde con dati finti: min/avg/stddev/cv/max/histogram.
+
+
+💬: (Una bozza per le statistiche della popolazione: utile per disegnare grafici in anticipo, anche se i numeri veri arriveranno più avanti.)
+
+
+
+COME “COLLABORANO” le funzioni interne (dietro le quinte)
+_parse_params()
+
+
+🧠: uniforma snake_case/camelCase, pulisce la data.
+
+
+💬: (Capisce i parametri anche se li nomini in modi diversi.)
+
+
+_normalize_score_color()
+
+
+🧠: prende l’output dell’algoritmo e lo porta a { score 0..100, color }.
+
+
+💬: (Trasforma il risultato in una forma semplice e sempre uguale.)
+
+
+_normalize_features()
+
+
+🧠: rende omogenea la lista dei dettagli (name/value/target/score/weight).
+
+
+💬: (Converte vari formati in una tabella ordinata.)
+
+
+_extract_color()
+
+
+🧠: legge il colore “nativo” (green/verde, yellow/giallo/orange, red/rosso).
+
+
+💬: (Capisce il colore anche se scritto in più lingue.)
+
+
+_heuristic_score_from_color()
+
+
+🧠: se manca lo score, lo stima dal colore (green≈0, yellow≈40, red≈80).
+
+
+💬: (Se sai il colore, puoi indovinare un voto indicativo.)
+
+
+_load_norme_map()
+
+
+🧠: estrae per ogni parametro {min,max} da valori_norma_emodialisi.json, qualunque sia la struttura del file.
+
+
+💬: (Tira fuori solo i limiti utili per fare i conti.)
+
+
+_avg_features_for_window()
+
+
+🧠: calcola le medie dei parametri nel periodo, poi assegna score/colore in base alle norme.
+
+
+💬: (Se l’algoritmo non ti dà dettagli, fa lui la tabella delle medie per spiegare il voto.)
+
+
+
+FILI ROSSI (regole generali che ti aiutano a ricordare)
+Status prima di tutto: il frontend bussa a /status. Se è “ok”, prosegue.
+
+
+💬: (Prima “controllo il motore”, poi parto.)
+
+
+Norme come vocabolario: senza /norme, i numeri non hanno significato.
+
+
+💬: (Le norme dicono cosa è “normale”: sono la legenda dei colori.)
+
+
+Timeline = valutazioni ripetute: per ogni giorno, stessa ricetta (valuta_summary).
+
+
+💬: (È come dare tanti “mini-voti” nel tempo.)
+
+
+Dettaglio = spiegazione: tabella con medie, range, colori, pesi.
+
+
+💬: (Ti dice “chi ha alzato la mano” per far salire o scendere il voto.)
+
+
+Normalizzazione = serenità: qualunque cosa esca dall’algoritmo, il backend te la rende coerente (score/100 + colore standard).
+
+
+💬: (Così il frontend non impazzisce.)

@@ -1,0 +1,166 @@
+{
+  "parametri": {
+    "PAS_sistolica_mmHg": {
+      "standard": 120,
+      "accettabile_min": 100,
+      "accettabile_max": 160,
+      "unita": "mmHg"
+    },
+    "PAD_diastolica_mmHg": {
+      "standard": 80,
+      "accettabile_min": 60,
+      "accettabile_max": 90,
+      "unita": "mmHg"
+    },
+    "FC_bpm": {
+      "standard": 70,
+      "accettabile_min": 60,
+      "accettabile_max": 100,
+      "unita": "bpm"
+    },
+    "peso_pre_kg": {
+      "standard": "variabile",
+      "accettabile_min": "-2kg dal peso secco",
+      "accettabile_max": "+2kg dal peso secco",
+      "unita": "kg"
+    },
+    "peso_post_kg": {
+      "standard": "peso secco",
+      "accettabile_min": "-1kg",
+      "accettabile_max": "+1kg",
+      "unita": "kg"
+    },
+    "delta_kg": {
+      "standard": "2-3",
+      "accettabile_min": 1,
+      "accettabile_max": 4,
+      "unita": "kg"
+    },
+    "UF_tot_L": {
+      "standard": 3,
+      "accettabile_min": 2,
+      "accettabile_max": 4,
+      "unita": "L"
+    },
+    "UF_ml_h_kg": {
+      "standard": 10,
+      "accettabile_min": 8,
+      "accettabile_max": 13,
+      "unita": "ml/h/kg"
+    },
+    "flusso_fistola_ml_min": {
+      "standard": 600,
+      "accettabile_min": 500,
+      "accettabile_max": 800,
+      "unita": "ml/min"
+    },
+    "QB_tot_ml_min": {
+      "standard": 330,
+      "accettabile_min": 300,
+      "accettabile_max": 400,
+      "unita": "ml/min"
+    },
+    "pressione_venosa_mmHg": {
+      "standard": 150,
+      "accettabile_min": 100,
+      "accettabile_max": 200,
+      "unita": "mmHg"
+    },
+    "pressione_arteriosa_accesso_mmHg": {
+      "standard": -220,
+      "accettabile_min": -250,
+      "accettabile_max": -180,
+      "unita": "mmHg"
+    },
+    "resistenza_vascolare_indice": {
+      "standard": 1.0,
+      "accettabile_min": 0.8,
+      "accettabile_max": 1.5,
+      "unita": "indice"
+    },
+    "recircolazione_percent": {
+      "standard": 5,
+      "accettabile_min": 0,
+      "accettabile_max": 10,
+      "unita": "%"
+    },
+    "microclo_percent": {
+      "standard": 5,
+      "accettabile_min": 0,
+      "accettabile_max": 8,
+      "unita": "%"
+    },
+    "arteria_mmHg": {
+      "standard": 170,
+      "accettabile_min": 150,
+      "accettabile_max": 180,
+      "unita": "mmHg"
+    },
+    "vena_mmHg": {
+      "standard": 170,
+      "accettabile_min": 150,
+      "accettabile_max": 180,
+      "unita": "mmHg"
+    },
+    "tempo_emostasi_min": {
+      "standard": 8,
+      "accettabile_min": 0,
+      "accettabile_max": 12,
+      "unita": "min"
+    },
+    "infiltrazioni_ematomi_num": {
+      "standard": 0,
+      "accettabile_min": 0,
+      "accettabile_max": 1,
+      "unita": "occorrenze/mese"
+    },
+    "segnali_clinici_locali": {
+      "standard": "assenti",
+      "accettabile_min": "rossore lieve",
+      "accettabile_max": "rossore/dolore moderato",
+      "unita": "descrittivo"
+    },
+    "bruit": {
+      "standard": "presente e continuo",
+      "accettabile_min": "leggermente ridotto",
+      "accettabile_max": "ridotto",
+      "unita": "descrittivo"
+    },
+    "minuti_dialisi": {
+      "standard": 240,
+      "accettabile_min": 180,
+      "accettabile_max": 270,
+      "unita": "min"
+    },
+    "ago_art_G": {
+      "standard": 15,
+      "accettabile_min": 14,
+      "accettabile_max": 16,
+      "unita": "G"
+    },
+    "ago_ven_G": {
+      "standard": 15,
+      "accettabile_min": 14,
+      "accettabile_max": 16,
+      "unita": "G"
+    },
+    "scoro_FAV": {
+      "standard": "2-3",
+      "accettabile_min": 0,
+      "accettabile_max": 3,
+      "unita": "punteggio"
+    },
+    "score_CVC": {
+      "standard": 0,
+      "accettabile_min": 0,
+      "accettabile_max": 1,
+      "unita": "punteggio"
+    },
+    "ore_dialisi": {
+      "standard": 4,
+      "accettabile_min": 3,
+      "accettabile_max": 5,
+      "unita": "ore"
+    }
+  }
+}

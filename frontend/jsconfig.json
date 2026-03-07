@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@services/*": ["src/services/*"],
+      "@utils/*": ["src/utils/*"],
+      "@context/*": ["src/context/*"],
+      "@pages/*": ["src/pages/*"]
+    },
+    "checkJs": false,            // ⬅️ disattiva type-check JS (niente rossi)
+    "jsx": "react-jsx",          // opzionale, aiuta React nei .jsx
+    "allowJs": true              // opzionale, conferma che i .js vanno bene
+  },
+  "include": ["src"]
+}

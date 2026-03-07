@@ -1,0 +1,8 @@
+{
+  "nicknames": {
+    "P001": "Patient 001",
+    "P002": "Patient 002",
+    "P003": "Patient 003",
+    "{}": "{'patientId': 'P001', 'nickname': 'Patient 001'}"
+  }
+}

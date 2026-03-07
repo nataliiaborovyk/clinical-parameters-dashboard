@@ -1,0 +1,166 @@
+{
+  "properties": {
+    "FC_bpm": {
+      "id": "FC_bpm",
+      "type": "int",
+      "unit": "bpm",
+      "description": null
+    },
+    "PAD_diastolica_mmHg": {
+      "id": "PAD_diastolica_mmHg",
+      "type": "int",
+      "unit": "mmHg",
+      "description": null
+    },
+    "PAS_sistolica_mmHg": {
+      "id": "PAS_sistolica_mmHg",
+      "type": "int",
+      "unit": "mmHg",
+      "description": null
+    },
+    "QB_tot_ml_min": {
+      "id": "QB_tot_ml_min",
+      "type": "int",
+      "unit": "ml/min",
+      "description": null
+    },
+    "UF_ml_h_kg": {
+      "id": "UF_ml_h_kg",
+      "type": "int",
+      "unit": "ml/h/kg",
+      "description": null
+    },
+    "UF_tot_L": {
+      "id": "UF_tot_L",
+      "type": "int",
+      "unit": "L",
+      "description": null
+    },
+    "ago_art_G": {
+      "id": "ago_art_G",
+      "type": "int",
+      "unit": "G",
+      "description": null
+    },
+    "ago_ven_G": {
+      "id": "ago_ven_G",
+      "type": "int",
+      "unit": "G",
+      "description": null
+    },
+    "arteria_mmHg": {
+      "id": "arteria_mmHg",
+      "type": "int",
+      "unit": "mmHg",
+      "description": null
+    },
+    "bruit": {
+      "id": "bruit",
+      "type": "string",
+      "unit": "descrittivo",
+      "description": null
+    },
+    "delta_kg": {
+      "id": "delta_kg",
+      "type": "string",
+      "unit": "kg",
+      "description": null
+    },
+    "flusso_fistola_ml_min": {
+      "id": "flusso_fistola_ml_min",
+      "type": "int",
+      "unit": "ml/min",
+      "description": null
+    },
+    "infiltrazioni_ematomi_num": {
+      "id": "infiltrazioni_ematomi_num",
+      "type": "int",
+      "unit": "occorrenze/mese",
+      "description": null
+    },
+    "microclo_percent": {
+      "id": "microclo_percent",
+      "type": "int",
+      "unit": "%",
+      "description": null
+    },
+    "minuti_dialisi": {
+      "id": "minuti_dialisi",
+      "type": "int",
+      "unit": "min",
+      "description": null
+    },
+    "ore_dialisi": {
+      "id": "ore_dialisi",
+      "type": "int",
+      "unit": "ore",
+      "description": null
+    },
+    "peso_post_kg": {
+      "id": "peso_post_kg",
+      "type": "string",
+      "unit": "kg",
+      "description": null
+    },
+    "peso_pre_kg": {
+      "id": "peso_pre_kg",
+      "type": "string",
+      "unit": "kg",
+      "description": null
+    },
+    "pressione_arteriosa_accesso_mmHg": {
+      "id": "pressione_arteriosa_accesso_mmHg",
+      "type": "int",
+      "unit": "mmHg",
+      "description": null
+    },
+    "pressione_venosa_mmHg": {
+      "id": "pressione_venosa_mmHg",
+      "type": "int",
+      "unit": "mmHg",
+      "description": null
+    },
+    "recircolazione_percent": {
+      "id": "recircolazione_percent",
+      "type": "int",
+      "unit": "%",
+      "description": null
+    },
+    "resistenza_vascolare_indice": {
+      "id": "resistenza_vascolare_indice",
+      "type": "float",
+      "unit": "indice",
+      "description": null
+    },
+    "score_CVC": {
+      "id": "score_CVC",
+      "type": "int",
+      "unit": "punteggio",
+      "description": null
+    },
+    "scoro_FAV": {
+      "id": "scoro_FAV",
+      "type": "string",
+      "unit": "punteggio",
+      "description": null
+    },
+    "segnali_clinici_locali": {
+      "id": "segnali_clinici_locali",
+      "type": "string",
+      "unit": "descrittivo",
+      "description": null
+    },
+    "tempo_emostasi_min": {
+      "id": "tempo_emostasi_min",
+      "type": "int",
+      "unit": "min",
+      "description": null
+    },
+    "vena_mmHg": {
+      "id": "vena_mmHg",
+      "type": "int",
+      "unit": "mmHg",
+      "description": null
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "property": "PAD_diastolica_mmHg",
+  "stats": {
+    "count": 405603,
+    "min": null,
+    "avg": null,
+    "stddev": null,
+    "cv": null,
+    "max": null,
+    "interval": "2023-02-01/2025-04-06",
+    "distribution": {
+      "FAV": 0.35,
+      "CVC-Tem": 0.25,
+      "CVC-Per": 0.4
+    }
+  }
+}

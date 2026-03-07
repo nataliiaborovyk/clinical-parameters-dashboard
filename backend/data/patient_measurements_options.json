@@ -1,0 +1,31 @@
+{
+  "patient_measurements": [
+    "FC_bpm",
+    "PAD_diastolica_mmHg",
+    "PAS_sistolica_mmHg",
+    "QB_tot_ml_min",
+    "UF_ml_h_kg",
+    "UF_tot_L",
+    "ago_art_G",
+    "ago_ven_G",
+    "arteria_mmHg",
+    "bruit",
+    "delta_kg",
+    "flusso_fistola_ml_min",
+    "infiltrazioni_ematomi_num",
+    "microclo_percent",
+    "minuti_dialisi",
+    "ore_dialisi",
+    "peso_post_kg",
+    "peso_pre_kg",
+    "pressione_arteriosa_accesso_mmHg",
+    "pressione_venosa_mmHg",
+    "recircolazione_percent",
+    "resistenza_vascolare_indice",
+    "score_CVC",
+    "scoro_FAV",
+    "segnali_clinici_locali",
+    "tempo_emostasi_min",
+    "vena_mmHg"
+  ]
+}

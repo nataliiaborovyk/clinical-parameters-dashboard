@@ -1,0 +1,6 @@
+| Funzione                | Scopo                                                           | Uso nel progetto                                      | Dove va                              |
+| ----------------------- | --------------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------ |
+| `parseNormsMap()`       | converte lista di norme → mappa `{ key: {min,max} }`            | usata nel `PatientCard.jsx` (Effect 5)                | **resta in `src/utils/`** (generica) |
+| `parseWeightsMap()`     | converte lista pesi → `{ key: weight }`                         | usata nel `PatientCard.jsx` (Effect 4)                | **resta in `src/utils/`** (generica) |
+| `getNormaForFromMaps()` | unisce norma globale + norma di riga per un parametro specifico | usata **solo nel widget Patient** (`PatientCard.jsx`) | **spostare in `utilsPatient.js`**    |
+| `normalizeKey()`        | normalizza nome chiave (minuscolo, underscore ecc.)             | usata in più punti (anche fuori Patient)              | **resta in `src/utils/`**            |

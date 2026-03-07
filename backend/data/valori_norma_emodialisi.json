@@ -1,0 +1,224 @@
+{
+  "parametri": {
+    "PAS_sistolica_mmHg": {
+      "standard": 120,
+      "accettabile_min": 100,
+      "accettabile_max": 160,
+      "unita": "mmHg",
+      "peso": 5,
+      "peso_normalizzato": 0.02512562814070352
+    },
+    "PAD_diastolica_mmHg": {
+      "standard": 80,
+      "accettabile_min": 60,
+      "accettabile_max": 90,
+      "unita": "mmHg",
+      "peso": 5,
+      "peso_normalizzato": 0.02512562814070352
+    },
+    "FC_bpm": {
+      "standard": 70,
+      "accettabile_min": 60,
+      "accettabile_max": 100,
+      "unita": "bpm",
+      "peso": 4,
+      "peso_normalizzato": 0.020100502512562814
+    },
+    "peso_pre_kg": {
+      "standard": "variabile",
+      "accettabile_min": "-2kg dal p/s",
+      "accettabile_max": "+2kg dal p/s",
+      "unita": "kg",
+      "peso": 10,
+      "peso_normalizzato": 0.05025125628140704
+    },
+    "peso_post_kg": {
+      "standard": "peso secco",
+      "accettabile_min": "-1kg",
+      "accettabile_max": "+1kg",
+      "unita": "kg",
+      "peso": 10,
+      "peso_normalizzato": 0.05025125628140704
+    },
+    "delta_kg": {
+      "standard": "2-3",
+      "accettabile_min": 1,
+      "accettabile_max": 4,
+      "unita": "kg",
+      "peso": 6,
+      "peso_normalizzato": 0.03015075376884422
+    },
+    "UF_tot_L": {
+      "standard": 3,
+      "accettabile_min": 2,
+      "accettabile_max": 4,
+      "unita": "L",
+      "peso": 6,
+      "peso_normalizzato": 0.03015075376884422
+    },
+    "UF_ml_h_kg": {
+      "standard": 10,
+      "accettabile_min": 8,
+      "accettabile_max": 13,
+      "unita": "ml/h/kg",
+      "peso": 4,
+      "peso_normalizzato": 0.020100502512562814
+    },
+    "flusso_fistola_ml_min": {
+      "standard": 600,
+      "accettabile_min": 500,
+      "accettabile_max": 800,
+      "unita": "ml/min",
+      "peso": 40,
+      "peso_normalizzato": 0.20100502512562815
+    },
+    "QB_tot_ml_min": {
+      "standard": 330,
+      "accettabile_min": 300,
+      "accettabile_max": 400,
+      "unita": "ml/min",
+      "peso": 8,
+      "peso_normalizzato": 0.04020100502512563
+    },
+    "pressione_venosa_mmHg": {
+      "standard": 150,
+      "accettabile_min": 100,
+      "accettabile_max": 200,
+      "unita": "mmHg",
+      "peso": 20,
+      "peso_normalizzato": 0.10050251256281408
+    },
+    "pressione_arteriosa_accesso_mmHg": {
+      "standard": -220,
+      "accettabile_min": -250,
+      "accettabile_max": -180,
+      "unita": "mmHg",
+      "peso": 10,
+      "peso_normalizzato": 0.05025125628140704
+    },
+    "resistenza_vascolare_indice": {
+      "standard": 1.0,
+      "accettabile_min": 0.8,
+      "accettabile_max": 1.5,
+      "unita": "indice",
+      "peso": 8,
+      "peso_normalizzato": 0.04020100502512563
+    },
+    "recircolazione_percent": {
+      "standard": 5,
+      "accettabile_min": 0,
+      "accettabile_max": 10,
+      "unita": "%",
+      "peso": 8,
+      "peso_normalizzato": 0.04020100502512563
+    },
+    "microclo_percent": {
+      "standard": 5,
+      "accettabile_min": 0,
+      "accettabile_max": 8,
+      "unita": "%",
+      "peso": 5,
+      "peso_normalizzato": 0.02512562814070352
+    },
+    "arteria_mmHg": {
+      "standard": 170,
+      "accettabile_min": 150,
+      "accettabile_max": 180,
+      "unita": "mmHg",
+      "peso": 5,
+      "peso_normalizzato": 0.02512562814070352
+    },
+    "vena_mmHg": {
+      "standard": 170,
+      "accettabile_min": 150,
+      "accettabile_max": 180,
+      "unita": "mmHg",
+      "peso": 5,
+      "peso_normalizzato": 0.02512562814070352
+    },
+    "tempo_emostasi_min": {
+      "standard": 8,
+      "accettabile_min": 0,
+      "accettabile_max": 12,
+      "unita": "min",
+      "peso": 6,
+      "peso_normalizzato": 0.03015075376884422
+    },
+    "infiltrazioni_ematomi_num": {
+      "standard": 0,
+      "accettabile_min": 0,
+      "accettabile_max": 1,
+      "unita": "occorrenze/mese",
+      "peso": 5,
+      "peso_normalizzato": 0.02512562814070352
+    },
+    "segnali_clinici_locali": {
+      "standard": "assenti",
+      "accettabile_min": "rossore lieve",
+      "accettabile_max": "rossore moderato",
+      "unita": "descrittivo",
+      "peso": 3,
+      "peso_normalizzato": 0.01507537688442211
+    },
+    "bruit": {
+      "standard": "presente",
+      "accettabile_min": "ridotto",
+      "accettabile_max": "ridotto",
+      "unita": "descrittivo",
+      "peso": 2,
+      "peso_normalizzato": 0.010050251256281407
+    },
+    "minuti_dialisi": {
+      "standard": 240,
+      "accettabile_min": 180,
+      "accettabile_max": 270,
+      "unita": "min",
+      "peso": 2,
+      "peso_normalizzato": 0.010050251256281407
+    },
+    "ago_art_G": {
+      "standard": 15,
+      "accettabile_min": 14,
+      "accettabile_max": 16,
+      "unita": "G",
+      "peso": 2,
+      "peso_normalizzato": 0.010050251256281407
+    },
+    "ago_ven_G": {
+      "standard": 15,
+      "accettabile_min": 14,
+      "accettabile_max": 16,
+      "unita": "G",
+      "peso": 2,
+      "peso_normalizzato": 0.010050251256281407
+    },
+    "scoro_FAV": {
+      "standard": "2-3",
+      "accettabile_min": 0,
+      "accettabile_max": 3,
+      "unita": "punteggio",
+      "peso": 15,
+      "peso_normalizzato": 0.07537688442211055
+    },
+    "score_CVC": {
+      "standard": 0,
+      "accettabile_min": 0,
+      "accettabile_max": 1,
+      "unita": "punteggio",
+      "peso": 1,
+      "peso_normalizzato": 0.005025125628140704
+    },
+    "ore_dialisi": {
+      "standard": 4,
+      "accettabile_min": 3,
+      "accettabile_max": 5,
+      "unita": "ore",
+      "peso": 2,
+      "peso_normalizzato": 0.010050251256281407
+    }
+  },
+  "meta": {
+    "note": "File unificato: include valori di norma e pesi di importanza normalizzati.",
+    "somma_pesi": 199
+  }
+}

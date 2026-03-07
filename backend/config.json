@@ -1,0 +1,9 @@
+{
+  "port": 8001,
+  "finestra_giorni_default": 30,
+  "paths": {
+    "pazienti": "./backend/data/pazienti_emodialisi.json",
+    "norme": "./backend/data/valori_norma_emodialisi.json",
+    "pesi": "./backend/algoritmo/pesi_importanza.json"
+  }
+}
