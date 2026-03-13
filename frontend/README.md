@@ -15,7 +15,7 @@ Il progetto nasce nel contesto del sistema **SIATE – Sistema di Analisi dei Pa
 # Frontend Architecture
 
 L’architettura frontend è basata su **componenti React modulari**, organizzati per responsabilità.
-```text
+
 User
 ↓
 React Components
@@ -187,7 +187,7 @@ Il frontend utilizza le seguenti tecnologie:
 
 Per avviare il frontend:
 
-```bash
+bash
 cd frontend
 npm install
 npm run dev

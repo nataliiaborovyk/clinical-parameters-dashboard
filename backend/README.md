@@ -18,7 +18,7 @@ Per questo motivo il backend implementa una versione semplificata dei servizi ne
 
 Il backend segue una struttura semplice ma funzionale, progettata per supportare il widget paziente della dashboard.
 
-```text
+text
 Frontend (React Dashboard)
 ↓
 HTTP Requests
@@ -102,7 +102,7 @@ Il backend espone API utilizzate dal frontend per recuperare i dati clinici del 
 Flusso tipico:
 
 
-```text
+text
 Frontend React
 ↓
 Richiesta API HTTP
@@ -138,7 +138,7 @@ Di seguito un esempio semplificato del flusso utilizzato dal frontend per ottene
 
 ### Example Request
 
-```json
+json
 {
   "id": "P001",
   "timestamp": "2025-10-10",
@@ -229,7 +229,7 @@ Il backend utilizza le seguenti tecnologie:
 
 Per avviare il backend:
 
-```bash
+bash
 cd backend
 pip install -r requirements.txt
 python app.py

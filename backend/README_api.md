@@ -34,7 +34,7 @@ Sanity check del backend.
 
 ### Response 200
 
-```json
+json
 {
   "status": "ok"
 }
@@ -165,15 +165,13 @@ Response 200
     }
   ]
 }
+
 Note
 
 Se l’algoritmo non restituisce features, il backend usa un fallback interno che:
-
-calcola le medie nel periodo [timestamp - days, timestamp]
-
-applica i range delle norme
-
-ordina le feature per score decrescente
+- calcola le medie nel periodo [timestamp - days, timestamp]
+- applica i range delle norme
+- ordina le feature per score decrescente
 
 # 3. Playground endpoints
 
@@ -508,16 +506,17 @@ frontend/src/services/widgetPatientApi.js
 
 Mappa principale
 Funzione frontend	Metodo & path backend	Uso
+
 getPatientsDataJson()	GET /pazienti	lista pazienti / fallback dati
 postPatientsGet()	    POST /playground/patients/get	dati paziente per widget
-postPatientTriage()	    POST /patients/triage	tabella dettagli parametri
-getNicknames()	        GET /nicknames	nickname pazienti
-saveNickname()	    POST /nicknames/save	salvataggio nickname
-getNormsJson()	    GET /norme	norme cliniche
-getOntologyJson()	GET /playground/ontology	ontologia widget
-getCdrsJson()	    GET /cdrs	configurazioni CDR
-getPropertyStats()	GET /playground/stats	statistiche proprietà
-getTimelinePoints()	GET /playground/timeline	timeline widget
+postPatientTriage()	  POST /patients/triage	tabella dettagli parametri
+getNicknames()	      GET /nicknames	nickname pazienti
+saveNickname()	      POST /nicknames/save	salvataggio nickname
+getNormsJson()	      GET /norme	norme cliniche
+getOntologyJson()	    GET /playground/ontology	ontologia widget
+getCdrsJson()	        GET /cdrs	configurazioni CDR
+getPropertyStats()	  GET /playground/stats	statistiche proprietà
+getTimelinePoints()	  GET /playground/timeline	timeline widget
 
 # 7. Disallineamenti attuali da conoscere
 
