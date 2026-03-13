@@ -34,14 +34,16 @@ Sanity check del backend.
 
 ### Response 200
 
-json
+```json
 {
   "status": "ok"
 }
+```
 
 ## GET /norme
 Restituisce il contenuto del file valori_norma_emodialisi.json.
 Response 200
+```json
 {
   "parametri": {
     "PAS_sistolica_mmHg": {
@@ -52,7 +54,7 @@ Response 200
     }
   }
 }
-
+```
 
 ## GET /pazienti
 Lista degli ID pazienti presenti nel dataset.
@@ -73,6 +75,7 @@ Per ogni measurement del paziente, il backend calcola un risultato sintetico usa
 - score
 
 Response 200
+```json
 [
   {
     "timestamp": "2024-04-15T00:00:00Z",
@@ -85,10 +88,13 @@ Response 200
     "score": 80.0
   }
 ]
+```
 Response 404
+```json
 {
   "error": "patient not found"
 }
+```
 
 ## POST /valuta
 
@@ -97,34 +103,43 @@ Calcolo riassuntivo dello stato del paziente in una finestra temporale che termi
 Accetta sia body in snake_case che in camelCase.
 
 Body esempio
+```json
 {
   "id_paziente": "P001",
   "data_riferimento": "2024-06-30",
   "days": 30,
   "regola": "CDR_1"
 }
+```
 
 oppure
-
+```json
 {
   "patientId": "P001",
   "timestamp": "2024-06-30",
   "days": 30,
   "ruleId": "CDR_1"
 }
+```
 Response 200
+```json
 {
   "score": 40.0,
   "color": "yellow"
 }
+```
 Response 400
+```json
 {
   "error": "id_paziente/patientId e data_riferimento/timestamp richiesti"
 }
+```
 Response 500
+```json
 {
   "error": "Errore algoritmo: ..."
 }
+```
 Note
 
 il campo ruleId / regola viene letto ma nel backend attuale non modifica il calcolo
@@ -138,13 +153,16 @@ Calcolo dettagliato dello stato del paziente.
 Oltre a score e color, restituisce una lista di features.
 
 Body esempio
+```json
 {
   "patientId": "P001",
   "timestamp": "2024-06-30",
   "days": 30,
   "ruleId": "CDR_1"
 }
+```
 Response 200
+```json
 {
   "score": 57.0,
   "color": "yellow",
@@ -165,6 +183,7 @@ Response 200
     }
   ]
 }
+```
 
 Note
 
@@ -182,6 +201,7 @@ Questi endpoint sono il cuore dell’integrazione frontend–backend attuale.
 Restituisce il contenuto del file cdrs.json.
 
 Response 200
+```json
 {
   "CDRs": {
     "cdr_alg1": {
@@ -190,6 +210,7 @@ Response 200
     }
   }
 }
+```
 
 Nota
 La struttura precisa dipende dal contenuto del file cdrs.json.
@@ -199,23 +220,28 @@ La struttura precisa dipende dal contenuto del file cdrs.json.
 Restituisce il contenuto del file nicknames.json.
 
 Response 200
+```json
 {
   "nicknames": {
     "P001": "Mario Rossi",
     "P002": "Lucia Bianchi"
   }
 }
+```
 
 ## POST /nicknames/save
 
 Salva o aggiorna il nickname di un paziente.
 
 Body esempio
+```json
 {
   "patientId": "P001",
   "nickname": "Mario Rossi"
 }
+```
 Response 200
+```json
 {
   "ok": true,
   "saved": {
@@ -225,45 +251,58 @@ Response 200
     "P001": "Mario Rossi"
   }
 }
+```
 Response 400
+```json
 {
   "ok": false,
   "error": "patientId o nickname mancante"
 }
+```
 Response 500
+```json
 {
   "ok": false,
   "error": "server error: ..."
 }
+```
 
 ## GET /playground/ontology
 
 Restituisce il file playground_ontology.json.
 
 Response 200
+```json
 {
   "...": "..."
 }
+```
 Response 500
+```json
 {
   "error": "Ontology not found at ..."
 }
+```
 
 ## GET /playground/CDRs/{cdr_id}
 
 Restituisce schema e parametri di un CDR specifico.
 
 Response 200
+```json
 {
   "schema": "cdr_alg1",
   "params": {
     "...": "..."
   }
 }
+```
 Response 404
+```json
 {
   "error": "CDR not found"
 }
+```
 
 ## GET /playground/stats?property={property_id}
 
@@ -273,6 +312,7 @@ Esempio request
 
 ## GET /playground/stats?property=PAS_sistolica_mmHg
 Response 200
+```json
 {
   "property": "PAS_sistolica_mmHg",
   "stats": {
@@ -291,6 +331,7 @@ Response 200
     }
   }
 }
+```
 Note
 
 Se il file statistico specifico non esiste, il backend restituisce un fallback demo.
@@ -300,16 +341,19 @@ Se il file statistico specifico non esiste, il backend restituisce un fallback d
 Restituisce i dati del paziente nel formato usato dal frontend playground.
 
 Body esempio
+```json
 {
   "id": "P001"
 }
-
+```
 oppure
-
+```json
 {
   "patientId": "P001"
 }
+```
 Response 200
+```json
 {
   "patient": "P001",
   "measurements": {
@@ -323,14 +367,19 @@ Response 200
     "FAV": "radiocefalica"
   }
 }
+```
 Response 400
+```json
 {
   "error": "missing patient id"
 }
+```
 Response 404
+```json
 {
   "error": "patient not found"
 }
+```
 
 ## GET /playground/timeline?id={patient_id}&cdr={cdr_id}
 
@@ -347,6 +396,7 @@ fallback a 30
 Esempio request
 GET /playground/timeline?id=P001&cdr=cdr_alg1
 Response 200
+```json
 [
   {
     "date": "2024-06-01",
@@ -359,14 +409,19 @@ Response 200
     "score": 44.0
   }
 ]
+```
 Response 400
+```json
 {
   "error": "missing id"
 }
+```
 Response 404
+```json
 {
   "error": "patient not found"
 }
+```
 
 # 4. Main triage endpoint
 
@@ -385,11 +440,14 @@ details.rows
 Ogni riga contiene il dettaglio di un parametro clinico.
 
 Body esempio base
+```json
 {
   "id": "P001",
   "timestamp": "2025-10-10"
 }
+```
 Body esempio con periodo esplicito
+```json
 {
   "id": "P001",
   "timestamp": "2025-10-10",
@@ -398,13 +456,17 @@ Body esempio con periodo esplicito
     "to": "2025-10-10"
   }
 }
+```
 Body legacy supportato
+```json
 {
   "id": "P001",
   "timestamp": "2025-10-10",
   "window_days": 30
 }
+```
 Response 200
+```json
 {
   "triage": {
     "date": "2025-10-10",
@@ -431,22 +493,25 @@ Response 200
     }
   }
 }
+```
 Response 400
+```json
 {
   "error": "id e timestamp sono obbligatori"
 }
-
+```
 oppure
-
+```json
 {
   "error": "timestamp mancante"
 }
-
+```
 oppure
-
+```json
 {
   "error": "period.to < period.from"
 }
+```
 Response 404
 
 Se valuta_detailed(...) restituisce un oggetto con status: 404, il backend lo inoltra come 404.
@@ -468,35 +533,45 @@ timelineRaw contiene l’intera storia del parametro
 Restituisce lo stato della canvas salvato su file.
 
 Response 200
+```json
 {
   "cards": [],
   "zTop": 10
 }
+```
 
 oppure il contenuto reale di canvas_state.json.
 
 Response 500
+```json
 {
   "error": "..."
 }
+```
 
 ## POST /canvas/state
 
 Salva lo stato corrente della canvas.
 
 Body esempio
+```json
 {
   "cards": [],
   "zTop": 10
 }
+```
 Response 200
+```json
 {
   "ok": true
 }
+```
 Response 500
+```json
 {
   "error": "..."
 }
+```
 
 # 6. Mappa attuale delle chiamate frontend
 
@@ -506,7 +581,7 @@ frontend/src/services/widgetPatientApi.js
 
 Mappa principale
 Funzione frontend	Metodo & path backend	Uso
-
+```text
 getPatientsDataJson()	GET /pazienti	lista pazienti / fallback dati
 postPatientsGet()	    POST /playground/patients/get	dati paziente per widget
 postPatientTriage()	  POST /patients/triage	tabella dettagli parametri
@@ -517,6 +592,7 @@ getOntologyJson()	    GET /playground/ontology	ontologia widget
 getCdrsJson()	        GET /cdrs	configurazioni CDR
 getPropertyStats()	  GET /playground/stats	statistiche proprietà
 getTimelinePoints()	  GET /playground/timeline	timeline widget
+```
 
 # 7. Disallineamenti attuali da conoscere
 

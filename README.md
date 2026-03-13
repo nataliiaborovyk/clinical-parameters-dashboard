@@ -64,6 +64,7 @@ I dati clinici sono simulati e memorizzati in **file JSON**, che rappresentano:
 
 # Project Structure
 
+```text
 clinical-parameters-dashboard
 │
 ├── backend/
@@ -92,7 +93,7 @@ clinical-parameters-dashboard
 │ └── App.jsx
 │
 └── README.md
-
+```
 
 ### Backend
 

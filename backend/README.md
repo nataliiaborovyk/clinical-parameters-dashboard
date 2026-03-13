@@ -130,15 +130,11 @@ Le risposte API contengono:
 
 #  API Example
 
-
-```markdown
-## API Example
-
 Di seguito un esempio semplificato del flusso utilizzato dal frontend per ottenere una valutazione del paziente.
 
 ### Example Request
 
-json
+```json
 {
   "id": "P001",
   "timestamp": "2025-10-10",
@@ -147,8 +143,10 @@ json
     "to": "2025-10-10"
   }
 }
+```
 
 Example Response
+```json
 {
   "triage": {
     "date": "2025-10-10",
@@ -183,10 +181,9 @@ Example Response
     }
   }
 }
+```
 
 
-
-```markdown
 ## Supported Data
 
 Il backend lavora su dataset clinici simulati organizzati in file JSON.
