@@ -1,16 +1,238 @@
-# React + Vite
+# Frontend — Clinical Parameters Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+Il frontend del progetto **Clinical Parameters Dashboard** implementa una dashboard interattiva per l’analisi dei parametri clinici dei pazienti nel tempo.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+L’interfaccia è sviluppata in **React** ed è progettata per visualizzare e analizzare l’andamento dei parametri clinici attraverso widget modulari, tabelle e grafici temporali.
 
-## React Compiler
+Questo frontend è stato sviluppato per supportare il **Patient Widget**, un componente che consente di analizzare i dati clinici del paziente e ottenere una valutazione sintetica dello stato clinico.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Il progetto nasce nel contesto del sistema **SIATE – Sistema di Analisi dei Parametri Clinici per Pazienti in Emodialisi**.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Frontend Architecture
+
+L’architettura frontend è basata su **componenti React modulari**, organizzati per responsabilità.
+```text
+User
+↓
+React Components
+↓
+Widget Logic
+↓
+API Requests
+↓
+Backend Flask
+
+
+Il frontend gestisce:
+
+- la visualizzazione dei dati clinici
+- l’interazione dell’utente con i parametri
+- la comunicazione con il backend
+- la gestione dello stato dei componenti
+
+---
+
+# Main Components
+
+## Canvas
+
+La **canvas** rappresenta il contenitore principale della dashboard.
+
+Permette di:
+
+- ospitare diversi widget
+- gestire il layout della dashboard
+- supportare componenti trascinabili
+
+Directory:
+src/components/canvas/
+
+
+Componenti principali:
+
+- `Canvas.jsx`
+- `DraggableComponent.jsx`
+- `GridOverlay.jsx`
+
+---
+
+## Patient Module
+
+Il **Patient Module** rappresenta il cuore della dashboard e contiene il widget dedicato all’analisi del paziente.
+
+Funzionalità principali:
+
+- visualizzazione dei parametri clinici
+- confronto dei valori con intervalli di riferimento
+- calcolo dello **score clinico aggregato**
+- analisi temporale dei parametri
+
+Directory:
+src/components/PatientModule/
+
+
+Componenti principali:
+
+- `PatientCard.jsx`
+- `ParametersTable.jsx`
+- `ParamChart.jsx`
+- `Timeline.jsx`
+- `NicknameEditor.jsx`
+
+---
+
+## Hooks
+
+Il frontend utilizza hook personalizzati per gestire logiche specifiche dell’applicazione.
+
+Esempio:
+src/components/PatientModule/hooks/useSegmentDates.js
+
+
+Questo hook gestisce:
+
+- il calcolo dei segmenti temporali
+- la selezione dei periodi di analisi
+- la gestione delle date utilizzate nei grafici
+
+---
+
+# Data Flow
+
+Il flusso dei dati nel frontend segue questo schema:
+
+Backend API
+↓
+Service Layer
+↓
+React Components
+↓
+Visualizzazione Dashboard
+
+
+1. Il frontend effettua richieste API tramite i servizi presenti in `services/`.
+2. I dati ricevuti vengono elaborati e passati ai componenti React.
+3. I componenti aggiornano la visualizzazione della dashboard.
+
+---
+
+# Services
+
+La comunicazione con il backend è gestita tramite un livello di servizi.
+
+Directory:
+src/services/
+
+
+File principali:
+
+- `otherApi.js`
+- `widgetPatientApi.js`
+
+Questi moduli gestiscono:
+
+- chiamate API
+- recupero dati clinici
+- integrazione con il backend Flask
+
+---
+
+# Utilities
+
+Il progetto include diversi moduli di utilità per supportare la logica della dashboard.
+
+Directory:
+src/utils/
+
+
+Esempi:
+
+- gestione delle date
+- funzioni matematiche
+- manipolazione dei dataset
+- gestione delle etichette e delle costanti
+
+File presenti:
+
+- `arrays.js`
+- `colors.js`
+- `constants.js`
+- `date.js`
+- `helpers.js`
+- `labels.js`
+- `math.js`
+- `norms.js`
+- `patientRaw.js`
+- `statsUtils.js`
+
+---
+
+# Technologies
+
+Il frontend utilizza le seguenti tecnologie:
+
+- **React**
+- **JavaScript**
+- **Component-based architecture**
+- **Custom hooks**
+- **Data visualization**
+
+---
+
+# Running the Frontend
+
+Per avviare il frontend:
+
+```bash
+cd frontend
+npm install
+npm run dev
+
+Una volta avviato il server di sviluppo, la dashboard sarà disponibile nel browser.
+
+
+---
+
+# Limitations
+
+Questo frontend rappresenta una parte del sistema SIATE e non l’intera piattaforma.
+
+In particolare:
+
+la dashboard include principalmente il Patient Widget
+
+altri widget del sistema non sono presenti in questo repository
+
+il backend utilizzato è una versione semplificata di supporto
+
+L’obiettivo del progetto è dimostrare il funzionamento del widget e la logica di analisi dei parametri clinici.
+
+---
+
+# Author Contribution
+
+Nel contesto del progetto accademico SIATE:
+
+Sviluppato personalmente in questo repository:
+
+- progettazione e sviluppo del **Patient Widget**
+- sviluppo dell’interfaccia React per l’analisi dei parametri clinici
+- integrazione **frontend–backend**
+- sviluppo della **canvas per la dashboard**
+
+Il progetto è stato realizzato come **progetto accademico presso ITS ICT Academy**.
+
+---
+
+# Future Improvements
+
+Possibili evoluzioni del progetto:
+
+- integrazione con un database reale
+- utilizzo di dataset clinici reali
+- estensione della dashboard con nuovi widget
+- integrazione con modelli di **Machine Learning per la previsione dello stato del paziente**
