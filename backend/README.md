@@ -40,7 +40,7 @@ Il backend gestisce:
 ---
 
 # Project Structure
-
+```text
 backend/
 │
 ├── app.py
@@ -55,6 +55,7 @@ backend/
 │ └── altri dataset simulati
 │
 └── pesi_importanza.json
+```
 
 
 ### app.py
