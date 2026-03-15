@@ -1,4 +1,5 @@
 # Clinical Parameters Dashboard
+![Project Overview](./screenshots/patient-dashboard-small.png)
 
 ## Overview
 
